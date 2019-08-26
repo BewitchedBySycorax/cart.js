@@ -57,7 +57,12 @@ var cart = {
 	},
 	addProduct: function(product) {
 		this.products.push(product);
-		this.products = products;
 		this.countTotalPrice();
 	},
 };
+
+// cart.addProduct(products[0]);
+// cart.addProduct(products[0]);
+// cart.addProduct(products[0]);
+// cart.addProduct(products[1]);
+// cart.addProduct(products[2]);
