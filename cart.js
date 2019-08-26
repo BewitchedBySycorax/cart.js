@@ -48,6 +48,14 @@ var products = [{
 var cart = {
 	products: [],
 	sum: 0,
+	addProduct: function(product) {
+		var item;
+		item.quantity = 1;
+		item.id = product.id;
+		item.price = product.price;
+		this.products(push.item);
+		this.countTotalPrice();
+	},
 	countTotalPrice() {
 		var sum = 0;
 			for ( var i = 0; i < this.products.length; i++ ) {
@@ -55,14 +63,4 @@ var cart = {
 			}
 			this.sum = sum;
 	},
-	addProduct: function(product) {
-		this.products.push(product);
-		this.countTotalPrice();
-	},
 };
-
-// cart.addProduct(products[0]);
-// cart.addProduct(products[0]);
-// cart.addProduct(products[0]);
-// cart.addProduct(products[1]);
-// cart.addProduct(products[2]);
