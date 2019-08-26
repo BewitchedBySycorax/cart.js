@@ -46,5 +46,13 @@ var products = [{
 }];
 
 var cart = {
-	
+	products: [],
+	sum: 0,
+	countTotalPrice() {
+		var sum = 0;
+			for ( var i = 0; i < this.products.length; i++ ) {
+				sum += this.products[i].price;
+			}
+			this.sum = sum;
+	},
 };
