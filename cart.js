@@ -55,4 +55,9 @@ var cart = {
 			}
 			this.sum = sum;
 	},
+	addProduct: function(product) {
+		this.products.push(product);
+		this.products = products;
+		this.countTotalPrice();
+	},
 };
