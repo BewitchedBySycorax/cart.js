@@ -1,6 +1,3 @@
-"use strict";
-console.log('cart.js');
-
 var products = [{
 	id: 1,
 	title: "Phone",
