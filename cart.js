@@ -1,16 +1,50 @@
-var products = [{
-	id: 1,
-	title: "Phone",
-	price: 500,
-}, {
-	id: 2,
-	title: "Laptop",
-	price: 850,
-}, {
-	id: 3,
-	title: "Tablet",
-	price: 230,
-}];
+var catalog = {
+	items: [{
+		id: 0,
+		title: "Phone",
+		price: 500,
+		src: ''
+	}, {
+		id: 1,
+		title: "Laptop",
+		price: 850,
+		src: ''
+	}, {
+		id: 2,
+		title: "Tablet",
+		price: 230,
+		src: ''
+	}],
+	render: function() {
+		for ( var i = 0; i < this.items.length; i++ ) {
+			var product = this.items[i];
+			var section = this.createElement('section');
+			var name = product.title;
+			var price = product.price;
+			section.innerHTML = '<span>Product title: ' + price + ';<br>' + 'Price: ' + price + '</span>';
+			section.id = name;
+
+			document.body.appendChild(section);
+
+			if ( product.src ) {
+				var img = document.createElement('img');
+				img.src = product.src;
+				section.appendChild(img);
+			}
+
+			var input = document.createElement('input');
+			input.type = 'button';
+			input.value = 'Add to basket';
+			input.id = name + '-input';
+
+			input.addEventListener('click', function() {
+				cart.addProduct(product);
+			});
+
+			section.appendChild(input);
+		}
+	}
+};
 
 var cart = {
 	products: [],
@@ -47,8 +81,6 @@ var cart = {
 	},
 };
 
-cart.addProduct(products[0]);
-cart.addProduct(products[0]);
-cart.addProduct(products[0]);
-cart.addProduct(products[1]);
-cart.addProduct(products[2]);
+window.addEventListener('load', function() {
+	catalog.render();
+});
